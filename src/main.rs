@@ -1,13 +1,17 @@
+use clap::Parser;
 
-
-use clap::{Arg, Command};
+#[derive(Parser)]
+#[command(author, version, about, long_about = None)]
+struct Cli {
+    #[arg(short, long)]
+    container: Option<String>,
+    #[arg(short, long)]
+    dockerfile: Option<String>,
+}
 
 fn main() {
-    let _matches = Command::new("ml-devtool")
-    .version("0.1")
-    .author("Kirk Kaiser (kirk@zothcorp.com)")
-    .about("Deterministic, reproducible dev environments")
-    .arg(Arg::new("container").short('c').long("container"))
-    .arg(Arg::new("dockerfile").short('d').long("dockerfile"))
-    .get_matches();
+    let cli = Cli::parse();
+
+    println!("container: {:?}", cli.container.as_deref());
+    println!("dockerfile: {:?}", cli.dockerfile.as_deref());
 }

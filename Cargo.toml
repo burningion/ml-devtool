@@ -1,8 +1,9 @@
 [package]
 name = "ml-devtool"
+authors = ["Kirk Kaiser (kirk@zothcorp.com)"]
 version = "0.1.0"
 edition = "2021"
-
+description = "Deterministic, reproducible dev environments"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
